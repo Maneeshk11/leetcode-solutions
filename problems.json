@@ -2,6 +2,13 @@
     {
         "title": "3Sum",
         "problemType": "Medium",
-        "tags": ["Array", "Two Pointers", "Sorting"]
+        "tags": ["Array", "Two Pointers", "Sorting"],
+        "filename": "3sum"
+    }, 
+    {
+        "title": "Two Sum",
+        "problemType": "Easy",
+        "tags": ["Array", "Hash Table"],
+        "filename": "two-sum"
     }
 ]
