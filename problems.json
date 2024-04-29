@@ -1,14 +1,21 @@
 [
     {
         "title": "3Sum",
-        "problemType": "Medium",
+        "problemType": "medium",
         "tags": ["Array", "Two Pointers", "Sorting"],
         "filename": "3sum"
     }, 
     {
         "title": "Two Sum",
-        "problemType": "Easy",
+        "problemType": "easy",
         "tags": ["Array", "Hash Table"],
         "filename": "two-sum"
+    },
+    {
+        "title": "Add Two Numbers",
+        "problemType": "medium",
+        "tags": ["Linked List", "Math"],
+        "filename": "add-two-numbers"
     }
+
 ]
