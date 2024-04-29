@@ -22,6 +22,12 @@
         "problemType": "medium",
         "tags": ["Hash Table", "String", "Sliding Window"],
         "filename": "lswpc"
+    },
+    {
+        "title": "Reverse Integer",
+        "problemType": "medium",
+        "tags": ["Math"],
+        "filename": "reverse-integer"
     }
 
 ]
