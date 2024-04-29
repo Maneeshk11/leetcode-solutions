@@ -1,0 +1,81 @@
+# Longest Substring Without Repeating Characters
+
+-----
+
+#### Description: 
+
+Given a string ```s```, find the length of the **longest substring** without repeating characters.
+
+#### Examples:
+
+```txt
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+```
+
+```txt
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+```
+
+```txt
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+```
+
+#### Constraints: 
+
+ - ```0 <= s.length <= 5 * 10^4```
+ - ```s``` consists of English letters, digits, symbols and spaces.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> mp;
+        int length = 0, max_length = 0;
+        int j = 0;
+        for (int i=0; i<s.length(); i++) {
+            length++;
+            if (mp.count(s[i]) == 1) {
+                while (s[j] != s[i]) {
+                    mp.erase(s[j]);
+                    j++;
+                    length--;
+                }
+                j++;
+                length--;
+            }
+            else {
+                mp[s[i]]++;
+            }
+            max_length = max(max_length, length);
+        }
+        return max_length;
+    }
+};
+```
+
+#### Explanation:
+
+- We make use of a hashmap to solve this and we use it to store the character count of the string.
+- We also use two pointers to keep track of the current substring.
+- The substring between the two pointers is a substring without repeating characters.
+- We iterate over the string and keep track of the length of the current substring.
+- If we encounter a character that is already present in the hash map, we update the length of the substring by moving forward the left pointer and remove the characters from the hash map until we reach the position of the repeated character.
+- We update the maximum length of the substring at each step.
+- Finally, we return the maximum length of the substring without repeating characters.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** ```O(n)```, where ```n``` is the length of the input string.
+
+
+
+    

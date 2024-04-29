@@ -16,6 +16,12 @@
         "problemType": "medium",
         "tags": ["Linked List", "Math"],
         "filename": "add-two-numbers"
+    },
+    {
+        "title": "Longest Substring Without Repeating Characters",
+        "problemType": "medium",
+        "tags": ["Hash Table", "String", "Sliding Window"],
+        "filename": "lswpc"
     }
 
 ]
