@@ -1,0 +1,75 @@
+# 3Sum Closest
+
+-----
+
+#### Description: 
+
+Given an integer array ```nums``` of length ```n``` and an integer ```target```, find three integers in ```nums``` such that the sum is closest to ```target```.
+
+Return the sum of the three integers.
+
+You may assume that each input would have exactly one solution.
+
+#### Examples:
+
+```txt
+Input: nums = [-1,2,1,-4], target = 1
+Output: 2
+Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+```
+
+```txt
+Input: nums = [0,0,0], target = 1
+Output: 0
+Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
+```
+
+#### Constraints: 
+
+- ```3 <= nums.length <= 500```
+- ```-1000 <= nums[i] <= 1000```
+- $$-10^4 <= target <= 10^4$$
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int ans = INT_MAX;
+        int ans_sum = 0;
+        for (int i=0; i<n-2; i++) {
+            int l = i+1, r = n-1;
+            while (l < r) {
+                int value = nums[i] + nums[l] + nums[r];
+                if (ans > abs(value-target)) {
+                    ans = abs(value-target);
+                    ans_sum = value;
+                }
+                if (value == target) {
+                    return target;
+                } else if (value < target) {
+                    l++;
+                } else {
+                    r--;
+                }
+            }
+        };
+        return ans_sum;
+    }
+};
+```
+
+#### Explanation:
+
+- First, we sort the array.
+- We maintain two variables, ```ans``` and ```ans_sum```, to store the minimum difference and the sum of the three integers, respectively.
+- We iterate over the array and for each element, we find the sum of the current element and the two pointers. (same as 3sum problem)
+- We update the ```ans``` and ```ans_sum``` if we find a sum that is closer to the target.
+- Finally, we return the ```ans_sum``` as the output.
+
+#### Complexity Analysis:
+
+- The **Time complexity** for this approach is $$O(n^2)$$, where ```n``` is the length of the array.

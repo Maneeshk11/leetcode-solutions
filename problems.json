@@ -28,6 +28,12 @@
         "problemType": "medium",
         "tags": ["Math"],
         "filename": "reverse-integer"
+    },
+    {
+        "title": "3Sum Closest",
+        "problemType": "medium",
+        "tags": ["Array", "Two Pointers", "Sorting"],
+        "filename": "3sum-closest"
     }
 
 ]
