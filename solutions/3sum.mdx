@@ -43,85 +43,48 @@ Explanation: The only possible triplet sums up to 0.
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        set <vector<int>> ans;
-        vector <pair<int, int>> arr;
+        sort(nums.begin(), nums.end());
         int n = nums.size();
-        if (nums[0] == 0 && nums[n - 1] == 0 && n >2000) {
-            vector <int> v;
-                v.push_back(0);
-                v.push_back(0);
-                v.push_back(0);
-                vector<vector<int>> k;
-                k.push_back(v);
-                return k;
-        }
-        if (nums[0] == 0 && nums[n - 1] == -1 && n >2000) {
-            vector <int> v, l;
-                v.push_back(-1);
-                v.push_back(0);
-                v.push_back(1);
-                l.push_back(0);
-                l.push_back(0);
-                l.push_back(0);
-                vector<vector<int>> k;
-                k.push_back(v);
-                k.push_back(l);
-                return k;
-        }
-        for (int i=0;i<n;i++) {
-            arr.push_back(make_pair(nums[i],i));
-        }
-        sort(arr.begin(), arr.end());
-        for (int i=0;i<n;i++) {
-            int st = 0, ed = n - 1;
-            int flag = 0;
-            
-            while (st < n && ed >= 0) {
-                if (i == arr[st].second || i == arr[ed].second) {
-                    if (i == arr[st].second) {
-                        st++;
-                        continue;
+        set<vector<int>> answer;
+        for (int i=0; i<n-1; i++) {
+            int l = i+1, r = n-1;
+            if (nums[i] > 0) {
+                break;
+            }
+            while (l < r) {
+                int value = nums[i] + nums[l] + nums[r];
+                if (value == 0) {
+                   answer.insert({nums[i], nums[l], nums[r]});
+                    l++;
+                    r--;
+                    if (nums[i+1] == nums[i]) {
+                        i++;
                     }
-                    else {
-                        ed--;
-                        continue;
-                    }
-                }
-                if (st == ed) {
-                    if (flag == 1) {
-                        ed--;
-                    }
-                    if (flag == 0) {
-                        st++;
-                    }
-                    continue;
-                }
-                if (nums[i] + arr[st].first + arr[ed].first > 0) {
-                    ed--;
-                    flag = 1;
-                    continue;
-                }
-                if (nums[i] + arr[st].first + arr[ed].first < 0) {
-                    st++;
-                    flag = 0;
-                    continue;
-                }
-                if (nums[i] + arr[st].first + arr[ed].first == 0) {
-                    vector <int> v;
-                    v.push_back(nums[i]);
-                    v.push_back(arr[st].first);
-                    v.push_back(arr[ed].first);
-                    sort(v.begin(),v.end());
-                    ans.insert(v);
-                    st++;
-                    ed--;
+                } else if (value < 0) {
+                    l++;
+                } else {
+                    r--;
                 }
             }
         }
-        vector<vector<int>> final(ans.begin(), ans.end());
-        return final;
+        vector<vector<int>> result;
+        for (auto x:answer) {
+            result.push_back(x);
+        }
+        return result;
     }
 };
 ```
 
 #### Explanation:
+
+- First, we sort the array.
+- We iterate over the array and for each element, we find the other two elements such that their sum is equal to the negative of the current element.
+- We use two pointers to find the other two elements. We move the left pointer if the sum is less than 0 and move the right pointer if the sum is greater than 0. We get a triplet when the sum is equal to 0.
+- We use a set to store the triplets to avoid duplicates.
+- We can break the loop if the current element is greater than 0 as all the three elements at this point are greater than "0".
+- We return the result as a vector of vectors.
+
+#### Complexity Analysis:
+
+- **Time complexity**: Time complexity for this approach is $$O(n^2)$$, where $$n$$ is the length of the input array.
