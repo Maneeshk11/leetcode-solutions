@@ -1,0 +1,77 @@
+# Valid Parentheses
+
+-----
+
+#### Description: 
+
+Given a string ```s``` containing just the characters ```'('```, ```')'```, ```'{'```, ```'}'```, ```'['``` and ```']'```, determine if the input string is valid.
+
+An input string is valid if:
+
+    1. Open brackets must be closed by the same type of brackets.
+    2. Open brackets must be closed in the correct order.
+    3. Every close bracket has a corresponding open bracket of the same type.
+
+#### Examples:
+
+```txt
+Input: s = "()"
+Output: true
+```
+
+```txt
+Input: s = "()[]{}"
+Output: true
+```
+
+```txt
+Input: s = "(]"
+Output: false
+```
+
+#### Constraints: 
+
+- $$1 <= s.length <= 10^4$$.
+- s consists of parentheses only ```'()[]{}'```
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        unordered_map <char, char> mp;
+        mp[')'] = '(';
+        mp['}'] = '{';
+        mp[']'] = '[';
+        for (int i=0; i<s.length(); i++) {
+            if (st.empty()) {
+                st.push(s[i]);
+            } else if (st.top() == mp[s[i]]) {
+                st.pop();
+            } else if (s[i] == '}' || s[i] == ']' || s[i] == ')'){
+                return false;
+            } else {
+                st.push(s[i]);
+            }
+        }
+        if (st.size() == 0) {
+            return true;
+        } 
+        return false;
+    }
+};
+```
+
+#### Explanation:
+
+- We use a stack to keep track of the opening brackets.
+- We also use a map to store the corresponding closing brackets.
+- We iterate through the string and check if the current character is an opening bracket. If it is, we push it onto the stack.
+- If the current character is a closing bracket, we check if the top of the stack contains the corresponding opening bracket. If it does, we pop the opening bracket from the stack. Else, we return false.
+- If the stack is empty at the end, we return true, else we return false.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$, where $$N$$ is the length of the input string.

@@ -58,6 +58,12 @@
         "problemType": "medium",
         "tags": ["Linked List", "Two Pointers"],
         "filename": "rem-nth-node-from-eo-list"
+    }, 
+    {
+        "title": "Valid Parentheses",
+        "problemType": "easy",
+        "tags": ["Stack", "String"],
+        "filename": "valid-parentheses"
     }
 
 ]
