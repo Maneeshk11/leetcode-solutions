@@ -40,6 +40,12 @@
         "problemType": "medium",
         "tags": ["string"],
         "filename": "count-and-say"
+    },
+    {
+        "title": "Palindrome Number",
+        "problemType": "easy",
+        "tags": ["math"],
+        "filename": "palindrome-number"
     }
 
 ]
