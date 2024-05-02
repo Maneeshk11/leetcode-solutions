@@ -1,0 +1,55 @@
+# Swap Nodes in Pairs
+
+-----
+
+#### Description: 
+
+Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
+
+#### Examples:
+
+```txt
+Input: head = [1,2,3,4]
+Output: [2,1,4,3]
+```
+
+```txt
+Input: head = []
+Output: []
+```
+
+#### Constraints: 
+
+- ```The number of nodes in the list is in the range [0, 100].```
+- ```0 <= Node.val <= 100```
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }     
+        ListNode* curr = head->next;
+        head->next = curr->next;
+        curr->next = head;
+        head->next = swapPairs(head->next);
+        curr->next = head;
+
+        return curr;
+    }
+};
+```
+
+#### Explanation:
+
+- The idea is to swap the first two nodes and then recursively call the function on the remaining list.
+- The base case is when the list is empty or has only one node.
+- In the recursive case, we swap the first two nodes and then call the function on the remaining list.
+- We then return the new head of the list.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$, where N is the number of nodes in the list.
