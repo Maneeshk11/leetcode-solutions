@@ -52,6 +52,12 @@
         "problemType": "medium",
         "tags": ["Linked List", "Recursion"],
         "filename": "swap-nodes-in-pairs"
+    }, 
+    {
+        "title": "Remove Nth Node From End of List",
+        "problemType": "medium",
+        "tags": ["Linked List", "Two Pointers"],
+        "filename": "rem-nth-node-from-eo-list"
     }
 
 ]

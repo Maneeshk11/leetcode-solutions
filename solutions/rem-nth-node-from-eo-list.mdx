@@ -1,0 +1,75 @@
+# Remove Nth Node From End of List
+
+-----
+
+#### Description: 
+
+Given the ```head``` of a linked list, remove the $$n^{th}$$ node from the end of the list and return its head.
+
+#### Examples:
+
+```txt
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+```
+
+```txt
+Input: head = [1], n = 1
+Output: []
+```
+
+```txt
+Input: head = [1,2], n = 1
+Output: [1]
+
+```
+
+#### Constraints: 
+
+- The number of nodes in the list is ```sz```.
+- ```1 <= sz <= 30```
+- ```0 <= Node.val <= 100```
+- ```1 <= n <= sz```
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* temp = head;
+        ListNode* slow;
+        ListNode* prev;
+        int count = 0;
+        while (temp != nullptr && count < n) {
+            temp = temp->next;
+            count++;
+        }
+        slow = head;
+        prev = head;
+        while (temp != nullptr) {
+            prev = slow;
+            slow = slow->next;   
+            temp = temp->next;         
+        }
+        if (slow == head) {
+            return head->next;
+        }
+        prev->next = slow->next;
+        return head;    
+    }
+};
+
+```
+
+#### Explanation:
+
+- We use two pointers, ```slow``` and ```temp```, to find the $$n^{th}$$ node from the end.
+- We first move the ```temp``` pointer by $$n$$ steps.
+- Then we move both pointers until ```temp``` reaches the end of the list.
+- At this point, ```slow``` will be pointing to the $$n^{th}$$ node from the end.
+- We then remove this node by updating the ```next``` pointer of the previous node stored in a ```prev``` pointer moved simultaneously with ```slow``` pointer. 
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$, where ```N``` is the number of nodes in the list.
