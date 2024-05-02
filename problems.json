@@ -34,6 +34,12 @@
         "problemType": "medium",
         "tags": ["Array", "Two Pointers", "Sorting"],
         "filename": "3sum-closest"
+    }, 
+    {
+        "title": "Count and Say",
+        "problemType": "medium",
+        "tags": ["string"],
+        "filename": "count-and-say"
     }
 
 ]

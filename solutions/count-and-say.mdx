@@ -1,0 +1,82 @@
+# Count and Say
+
+-----
+
+#### Description: 
+
+The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+
+    - ```countAndSay(1) = "1"```
+    - ```countAndSay(n)``` is the run-length encoding of ```countAndSay(n - 1).```
+
+[Run-length encoding](https://en.wikipedia.org/wiki/Run-length_encoding) (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string ```"3322251"``` we replace ```"33"``` with ```"23"```, replace ```"222"``` with ```"32"```, replace ```"5"``` with ```"15"``` and replace ```"1"``` with ```"11"```. Thus the compressed string becomes ```"23321511"```.
+
+Given a positive integer ```n```, return the $$n^{th}$$ element of the count-and-say sequence.
+
+
+#### Examples:
+
+```txt
+Input: n = 4
+Output: "1211"
+Explanation:
+    countAndSay(1) = "1"
+    countAndSay(2) = RLE of "1" = "11"
+    countAndSay(3) = RLE of "11" = "21"
+    countAndSay(4) = RLE of "21" = "1211"
+```
+
+```txt
+Input: n = 1
+Output: "1"
+Explanation:
+    This is the base case.
+```
+
+#### Constraints: 
+
+- ```1 <= n <= 30```
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    string recursiveCount(int n, string s) {
+        if (n == 1) {
+            return s;
+        }
+        string k = "";
+        char curr = s[0];
+        int count = 1;
+        for (int i=1; i<s.length(); i++){
+            if (curr == s[i]) {
+                count++;
+            } else {
+                k.append(to_string(count) + curr);
+                count = 1;
+                curr = s[i];
+            }
+        }
+        k.append(to_string(count) + curr);
+        return recursiveCount(n-1, k);
+    }
+
+    string countAndSay(int n) {
+        string s = "1";
+        return recursiveCount(n, s);
+    }
+};
+```
+
+#### Explanation:
+
+- We will solve this problem using a recursive approach. We can define a recursive function that takes the current number and the string as input and returns the "count-and-say" string for the given number.
+- The first case is the base case where if the number is 1, we will return the string as it is.
+- For the recursive case, we will iterate over the string and count the number of consecutive characters. We will append the count and the character to the new string and return the new string.
+- We will call the recursive function on the given number and the initial string which is ```"1"```.
+- Finally, we will return the result of the recursive function we defined in the given function.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(2^n)$$ where $$n$$ is the given number.
