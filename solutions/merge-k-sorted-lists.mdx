@@ -1,0 +1,109 @@
+# Merge k Sorted Lists
+
+-----
+
+#### Description: 
+
+You are given an array of ```k``` linked-lists ```lists```, each linked-list is sorted in ascending order.
+
+_Merge all the linked-lists into one sorted linked-list and return it._
+
+#### Examples:
+
+```txt
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+```
+
+```txt
+Input: lists = []
+Output: []
+```
+
+```txt
+Input: lists = [[]]
+Output: []
+```
+
+#### Constraints: 
+
+- ```k == lists.length```
+- $$0 <= k <= 10^4$$
+- ```0 <= lists[i].length <= 500```
+- $$-10^4 <= lists[i][j] <= 10^4$$
+- ```lists[i]``` is sorted in **ascending order**.
+- The sum of ```lists[i].length``` will not exceed $$10^4$$.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+
+    ListNode* merge2Lists(ListNode* l1, ListNode* l2) {
+        ListNode* head;
+        if (l1->val <= l2->val) {
+            head = l1;
+            l1 = l1->next;
+        } else {
+            head = l2;
+            l2 = l2->next;
+        }
+        ListNode* ans = head;
+        while (l1 != nullptr && l2 != nullptr) {
+            if (l1->val <= l2->val) {
+                head->next = l1;
+                l1 = l1->next;
+            } else {
+                head->next = l2;
+                l2 = l2->next;
+            }
+            head = head->next;
+        }
+        if (l1 == nullptr) {
+            head->next = l2;
+        } else {
+            head->next = l1;
+        }
+        return ans;
+    }
+
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (lists.size() == 1) {
+            return lists[0];
+        } else if (lists.size() == 0) {
+            return nullptr;
+        }
+        int mid = lists.size()/2;
+        vector<ListNode*> subList1(lists.begin(), lists.begin() + mid);
+        vector<ListNode*> subList2(lists.begin() + mid, lists.end());
+        ListNode* left = mergeKLists(subList1);
+        ListNode* right = mergeKLists(subList2);
+        if (left == nullptr || right == nullptr) {
+            return (left == nullptr) ? right : left;
+        } 
+        return merge2Lists(left, right);
+    }
+};
+```
+
+#### Explanation:
+
+- We can solve this problem by using a divide and conquer approach.
+- We divide the list of lists into two halves and recursively merge the two halves.
+- We then merge the two halves using the ```merge2Lists``` function. The ```merge2Lists``` function merges two lists in sorted order.
+- We keep dividing the list of lists until we have only one list left.
+- We then return the final merged list.
+
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N \log k)$$ where $$N$$ is the total number of nodes in the input lists and $$k$$ is the number of lists.
