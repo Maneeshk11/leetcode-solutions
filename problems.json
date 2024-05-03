@@ -70,5 +70,11 @@
     "problemType": "easy",
     "tags": ["Stack", "String"],
     "filename": "valid-parentheses"
+  },
+  {
+    "title": "Next Permutation",
+    "problemType": "medium",
+    "tags": ["Array", "Two Pointers"],
+    "filename": "next-permutation"
   }
 ]
