@@ -94,8 +94,5 @@
     "problemType": "medium",
     "tags": ["Array", "Hash Table", "Prefix Sum"],
     "filename": "subarray-sum-equals-k"
-  },
-  {
-
   }
 ]
