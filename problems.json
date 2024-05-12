@@ -90,6 +90,12 @@
     "filename": "majority-element"
   },
   {
+    "title": "Majority Element II",
+    "problemType": "medium",
+    "tags": ["Array", "Hash Table"],
+    "filename": "majority-element-2"
+  },
+  {
     "title": "Subarray Sum Equals K",
     "problemType": "medium",
     "tags": ["Array", "Hash Table", "Prefix Sum"],
