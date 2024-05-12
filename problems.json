@@ -81,6 +81,12 @@
     "title": "Maximum Subarray",
     "problemType": "medium",
     "tags": ["Array", "Divide and Conquer", "Dynamic Programming"],
-      "filename": "maximum-subarray"
+    "filename": "maximum-subarray"
+  },
+  {
+    "title": "Majority Element",
+    "problemType": "easy",
+    "tags": ["Array", "Hash Table", "Divide and Conquer"],
+    "filename": "majority-element"
   }
 ]
