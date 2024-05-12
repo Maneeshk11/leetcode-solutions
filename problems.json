@@ -88,5 +88,11 @@
     "problemType": "easy",
     "tags": ["Array", "Hash Table", "Divide and Conquer"],
     "filename": "majority-element"
+  },
+  {
+    "title": "Majority Element II",
+    "problemType": "medium",
+    "tags": ["Array", "Hash Table"],
+    "filename": "majority-element-2"
   }
 ]
