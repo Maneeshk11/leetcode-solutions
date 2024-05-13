@@ -106,5 +106,11 @@
     "problemType": "easy",
     "tags": ["Array", "Math"],
     "filename": "plus-one"
+  },
+  {
+    "title": "Path Sum",
+    "problemType": "easy",
+    "tags": ["Tree", "Depth-first Search"],
+    "filename": "path-sum"
   }
 ]
