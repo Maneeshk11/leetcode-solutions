@@ -100,5 +100,11 @@
     "problemType": "medium",
     "tags": ["Array", "Hash Table", "Prefix Sum"],
     "filename": "subarray-sum-equals-k"
+  },
+  {
+    "title": "Plus One",
+    "problemType": "easy",
+    "tags": ["Array", "Math"],
+    "filename": "plus-one"
   }
 ]
