@@ -118,5 +118,11 @@
     "problemType": "medium",
     "tags": ["Tree", "Depth-first Search"],
     "filename": "path-sum-2"
+  },
+  {
+    "title": "Rotate List",
+    "problemType": "medium",
+    "tags": ["Linked List", "Two Pointers"],
+    "filename": "rotate-list"
   }
 ]

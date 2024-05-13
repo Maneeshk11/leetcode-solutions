@@ -1,0 +1,77 @@
+
+# Rotate List
+
+-----
+
+#### Description: 
+
+Given the ```head``` of a linked list, rotate the list to the right by ```k``` places.
+
+#### Examples:
+
+```txt
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+```
+
+```txt
+Input: head = [0,1,2], k = 4
+Output: [2,0,1]
+```
+
+#### Constraints: 
+
+- The number of nodes in the list is in the range ```[0, 500]```.
+- ```-100 <= Node.val <= 100```
+- $$0 <= k <= 2 * 10^9$$
+
+#### Code: 
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func rotateRight(head *ListNode, k int) *ListNode {
+    if head == nil {
+        return head
+    }
+    temp := head
+    count := 0
+    for temp != nil {
+        count++
+        temp = temp.Next
+    }
+    k = k % count
+    temp = head 
+    for i := 0; i<count - k - 1 ; i++ {
+        temp = temp.Next;
+    }
+    ptr := temp.Next
+    if ptr == nil {
+        return head
+    }
+    for ptr.Next != nil {
+        ptr = ptr.Next
+    }
+    ptr.Next = head;
+    head = temp.Next;
+    temp.Next = nil;
+    return head;
+}
+```
+
+#### Explanation:
+
+- First, we need to find the length of the linked list.
+- Then, we need to find the new head of the linked list which will be at the position ```count - k - 1``` from front or ```k``` from the back.
+- Then, we need to find the last node of the linked list and connect it to the head of the linked list.
+- Finally, we need to break the connection between the new head and the node before it.
+
+
+#### Complexity Analysis:
+
+- The time complexity for this approach is $$O(N)$$ where $$N$$ is the number of nodes in the linked list.
