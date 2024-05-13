@@ -112,5 +112,11 @@
     "problemType": "easy",
     "tags": ["Tree", "Depth-first Search"],
     "filename": "path-sum"
+  },
+  {
+    "title": "Path Sum II",
+    "problemType": "medium",
+    "tags": ["Tree", "Depth-first Search"],
+    "filename": "path-sum-2"
   }
 ]
