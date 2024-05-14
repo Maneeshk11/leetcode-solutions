@@ -130,5 +130,11 @@
     "problemType": "medium",
     "tags": ["Dynamic Programming"],
     "filename": "unique-paths"
+  },
+  {
+    "title": "Unique Paths II",
+    "problemType": "medium",
+    "tags": ["Dynamic Programming"],
+    "filename": "unique-paths-2"
   }
 ]
