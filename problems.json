@@ -166,6 +166,12 @@
     "problemType": "easy",
     "tags": ["Array", "Greedy"],
     "filename": "can-place-flowers"
+  },
+  {
+    "title": "Reverse Vowels of a String",
+    "problemType": "easy",
+    "tags": ["String", "Two Pointers"],
+    "filename": "reverse-vowels-of-a-string"
   }
   
 ]

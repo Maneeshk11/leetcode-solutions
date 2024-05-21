@@ -1,0 +1,61 @@
+# Reverse Vowels of a String
+
+-----
+
+#### Description: 
+
+Given a string ```s```, reverse only all the vowels in the string and return it.
+
+The vowels are ```'a'```, ```'e'```, ```'i'```, ```'o'```, and ```'u'```, and they can appear in both lower and upper cases, more than once.
+
+#### Examples:
+
+```txt
+Input: s = "hello"
+Output: "holle"
+```
+
+```txt
+Input: s = "leetcode"
+Output: "leotcede"
+```
+
+#### Constraints: 
+
+- $$1 <= s.length <= 3 * 10^5$$
+- ```s``` consist of printable ASCII characters.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    string reverseVowels(string s) {
+        set<char> st({'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'});
+        string temp = "";
+        vector<int>pos;
+        for (int i=0; i<s.length(); i++) {
+            if (st.count(s[i]) == 1) {
+                temp.push_back(s[i]);
+                pos.push_back(i);
+            }
+        }
+        int n = pos.size();
+        for (int i=0; i<n; i++) {
+            s[pos[i]] = temp[n-i-1];
+        }
+        return s;
+    }
+};
+```
+
+#### Explanation:
+
+- We can use a set to store all the vowels.
+- We can iterate over the string and store all the vowels in a temporary string and their positions in a vector.
+- We can then iterate over the positions and replace the vowels with the reversed vowels from the temporary string.
+- Finally, we can return the modified string.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$ where $$N$$ is the length of the string.
