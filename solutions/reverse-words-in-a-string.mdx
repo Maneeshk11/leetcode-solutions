@@ -1,0 +1,74 @@
+# Reverse Words in a String
+
+-----
+
+#### Description: 
+
+Given an input string ```s```, reverse the order of the words.
+
+A **word** is defined as a sequence of non-space characters. The **words** in ```s``` will be separated by at least one space.
+
+Return _a string of the words in reverse order concatenated by a single space._
+
+**Note** that ```s``` may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+#### Examples:
+
+```txt
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+```
+
+```txt
+Input: s = "  hello world  "
+Output: "world hello"
+Explanation: Your reversed string should not contain leading or trailing spaces.
+```
+
+```txt
+Input: s = "a good   example"
+Output: "example good a"
+Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
+```
+
+#### Constraints: 
+
+- $$1 <= s.length <= 10^4$$
+- ```s``` contains English letters (upper-case and lower-case), digits, and spaces ```' '```.
+- There is **at least one** word in ```s```.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    string reverseWords(string s) {
+        string res="", temp = "";
+        vector<string>words;
+        for (int i=0; i<s.length(); i++) {
+            if (s[i] != 32){
+                temp.push_back(s[i]);
+            } else {
+                temp != "" ? words.push_back(temp) : void();
+                temp = "";
+            }
+        }
+        temp != "" ? words.push_back(temp) : void();
+        for (int i=words.size()-1; i>0; i--) {
+            res += words[i] + " ";
+        }
+        res += words[0];
+        return res;
+    }
+};
+```
+
+#### Explanation:
+
+- We will iterate over the given string and store the words in a vector.
+- Then we will iterate over the vector in reverse order and append the words to the result string.
+- Finally, we will return the result string.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$ where $$N$$ is the length of the given string. We are iterating over the string once and the vector of words once.

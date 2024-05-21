@@ -172,6 +172,12 @@
     "problemType": "easy",
     "tags": ["String", "Two Pointers"],
     "filename": "reverse-vowels-of-a-string"
+  },
+  {
+    "title": "Reverse Words in a String",
+    "problemType": "medium",
+    "tags": ["String", "Two Pointers"],
+    "filename": "reverse-words-in-a-string"
   }
   
 ]
