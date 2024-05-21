@@ -160,6 +160,12 @@
     "problemType": "easy",
     "tags": ["Array"],
     "filename": "kids-with-the-greatest"
+  }, 
+  {
+    "title": "Can Place Flowers",
+    "problemType": "easy",
+    "tags": ["Array", "Greedy"],
+    "filename": "can-place-flowers"
   }
   
 ]
