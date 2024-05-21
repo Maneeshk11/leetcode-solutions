@@ -178,6 +178,12 @@
     "problemType": "medium",
     "tags": ["String", "Two Pointers"],
     "filename": "reverse-words-in-a-string"
+  },
+  {
+    "title": "Product of Array Except Self",
+    "problemType": "medium",
+    "tags": ["Array", "Prefix Sum"],
+    "filename": "product-of-array-except-self"
   }
   
 ]
