@@ -1,0 +1,64 @@
+# Greatest Common Divisor of Strings
+
+-----
+
+#### Description: 
+
+For two strings ```s``` and ```t```, we say "```t``` divides ```s```" if and only if ```s = t + t + t + ... + t + t``` (i.e., ```t``` is concatenated with itself one or more times).
+
+Given two strings ```str1``` and ```str2```, return _the largest string ```x``` such that ```x``` divides both ```str1``` and ```str2```._
+
+#### Examples:
+
+```txt
+Input: str1 = "ABCABC", str2 = "ABC"
+Output: "ABC"
+```
+
+```txt
+Input: str1 = "ABABAB", str2 = "ABAB"
+Output: "AB"
+```
+
+```txt
+Input: str1 = "LEET", str2 = "CODE"
+Output: ""
+```
+
+#### Constraints: 
+
+- ```1 <= str1.length, str2.length <= 1000```
+- ```str1``` and ```str2``` consist of English uppercase letters.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    string gcdOfStrings(string str1, string str2) {
+        string s = "";
+        if (str1 + str2 != str2 + str1) {
+            return s;
+        }
+        string res = "";
+        int m = str1.length(), n = str2.length();
+        for (int i=0; i<min(m, n); i++) {
+            s.push_back(str1[i]);
+            if (m%s.length() == 0 && n%s.length() == 0) {
+                res = s;
+            }
+        }
+        return res;
+    }
+};
+```
+
+#### Explanation:
+
+- The approach is simple, we will check if the concatenation of the two strings is equal to each other or not. If not, then we will return an empty string. As, the strings should be divisible by each other.
+- Then, we will iterate over the minimum length of the two strings and keep adding the characters to a string ```s```. If the length of both the strings is divisible by the length of the string ```s```, then we will update the result string ```res``` with the current string ```s```.
+- Finally, we will return the result string ```res```.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** O(N), where N is the minimum length of the two strings.

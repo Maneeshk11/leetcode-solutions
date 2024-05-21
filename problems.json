@@ -148,5 +148,12 @@
     "problemType": "easy",
     "tags": ["String"],
     "filename": "merge-strings-alternately"
+  },
+  {
+    "title": "Greatest Common Divisor of Strings",
+    "problemType": "easy",
+    "tags": ["String"],
+    "filename": "greatest-common-divisor-of-strings"
   }
+  
 ]
