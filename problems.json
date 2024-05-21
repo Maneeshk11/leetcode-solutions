@@ -142,5 +142,11 @@
     "problemType": "medium",
     "tags": ["Dynamic Programming"],
     "filename": "minimum-path-sum"
+  },
+  {
+    "title": "Merge Strings Alternately",
+    "problemType": "easy",
+    "tags": ["String"],
+    "filename": "merge-strings-alternately"
   }
 ]
