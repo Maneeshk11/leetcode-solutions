@@ -154,6 +154,12 @@
     "problemType": "easy",
     "tags": ["String"],
     "filename": "greatest-common-divisor-of-strings"
+  },
+  {
+    "title": "Kids With the Greatest Number of Candies",
+    "problemType": "easy",
+    "tags": ["Array"],
+    "filename": "kids-with-the-greatest"
   }
   
 ]
