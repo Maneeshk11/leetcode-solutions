@@ -184,6 +184,12 @@
     "problemType": "medium",
     "tags": ["Array", "Prefix Sum"],
     "filename": "product-of-array-except-self"
+  },
+  {
+    "title": "Move Zeroes",
+    "problemType": "easy",
+    "tags": ["Array", "Two Pointers"],
+    "filename": "move-zeroes"
   }
   
 ]
