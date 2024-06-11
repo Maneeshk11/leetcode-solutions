@@ -190,6 +190,12 @@
     "problemType": "easy",
     "tags": ["Array", "Two Pointers"],
     "filename": "move-zeroes"
+  },
+  {
+    "title": "Pascal's Triangle",
+    "problemType": "easy",
+    "tags": ["Array", "Dynamic Programming"],
+    "filename": "pascals-triangle"
   }
   
 ]
