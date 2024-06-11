@@ -196,6 +196,12 @@
     "problemType": "easy",
     "tags": ["Array", "Dynamic Programming"],
     "filename": "pascals-triangle"
+  },
+  {
+    "title": "Set Matrix Zeroes",
+    "problemType": "medium",
+    "tags": ["Array", "Hash Table", "Matrix"],
+    "filename": "set-matrix-zeroes"
   }
   
 ]
