@@ -202,6 +202,12 @@
     "problemType": "medium",
     "tags": ["Array", "Hash Table", "Matrix"],
     "filename": "set-matrix-zeroes"
+  },
+  {
+    "title": "Sort Colors",
+    "problemType": "medium",
+    "tags": ["Array", "Two Pointers", "Sorting"],
+    "filename": "sort-colors"
   }
   
 ]
