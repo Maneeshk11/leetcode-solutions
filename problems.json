@@ -226,6 +226,12 @@
     "problemType": "easy",
     "tags": ["Linked List", "Recursion"],
     "filename": "merge-two-sorted-lists"
+  },
+  {
+    "title": "Delete Node in a Linked List",
+    "problemType": "medium",
+    "tags": ["Linked List"],
+    "filename": "delete-node-in-a-linked-list"
   }
   
 ]
