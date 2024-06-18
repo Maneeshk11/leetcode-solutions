@@ -238,6 +238,12 @@
     "problemType": "easy",
     "tags": ["Linked List", "Hash Table", "Two Pointers"],
     "filename": "linked-list-cycle"
+  },
+  {
+    "title": "Intersection of Two Linked Lists",
+    "problemType": "easy",
+    "tags": ["Linked List", "Hash Table", "Two Pointers"],
+    "filename": "intersection-of-two-linked-lists"
   }
   
 ]
