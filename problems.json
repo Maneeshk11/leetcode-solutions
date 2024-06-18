@@ -220,6 +220,12 @@
     "problemType": "easy",
     "tags": ["Linked List", "Two Pointers"],
     "filename": "middle-of-the-linked-list"
+  },
+  {
+    "title": "Merge Two Sorted Lists",
+    "problemType": "easy",
+    "tags": ["Linked List", "Recursion"],
+    "filename": "merge-two-sorted-lists"
   }
   
 ]
