@@ -1,0 +1,85 @@
+# Linked List Cycle
+
+-----
+
+#### Description: 
+
+Given ```head```, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the ```next``` pointer. Internally, ```pos``` is used to denote the index of the node that tail's next pointer is connected to. **Note that ```pos``` is not passed as a parameter.**
+
+Return ```true``` if there is a cycle in the linked list. Otherwise, return ```false```.
+
+
+#### Examples:
+
+```txt
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+```
+
+```txt
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+```
+
+```txt
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+```
+
+#### Constraints: 
+
+- The number of the nodes in the list is in the range $$[0, 10^4]$$.
+- $$-10^5 <= Node.val <= 10^5$$
+- ```pos``` is ```-1``` or a valid index in the linked-list.
+
+#### Code: 
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (!head || !head->next) {
+            return false;
+        }
+        ListNode *slow=head, *fast=head->next;
+        int count = 0;
+        while (fast) {
+            if (slow == fast) {
+                return true;
+            }
+            if (count%2 == 0) {
+                slow = slow->next;
+            }
+            fast = fast->next;
+            count++;
+        }
+        return false;
+    }
+};    
+```
+
+#### Explanation:
+
+- We can solve this problem using the Floyd's Tortoise and Hare algorithm.
+- We will use two pointers, one slow and one fast.
+- The slow pointer will move one step at a time and the fast pointer will move two steps at a time.
+- If there is a cycle in the linked list, the fast pointer will eventually meet the slow pointer.
+- If there is no cycle, the fast pointer will reach the end of the linked list.
+- We will return true if the fast pointer meets the slow pointer and false if the fast pointer reaches the end of the linked list.
+
+#### Complexity Analysis:
+
+- The time complexity for this approach is $$O(N)$$ where $$N$$ is the number of nodes in the linked list.

@@ -232,6 +232,12 @@
     "problemType": "medium",
     "tags": ["Linked List"],
     "filename": "delete-node-in-a-linked-list"
+  },
+  {
+    "title": "Linked List Cycle",
+    "problemType": "easy",
+    "tags": ["Linked List", "Hash Table", "Two Pointers"],
+    "filename": "linked-list-cycle"
   }
   
 ]
