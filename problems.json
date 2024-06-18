@@ -214,6 +214,12 @@
     "problemType": "easy",
     "tags": ["Array", "Dynamic Programming"],
     "filename": "best-time-to-buy-and-sell-stock"
+  },
+  {
+    "title": "Middle of the Linked List",
+    "problemType": "easy",
+    "tags": ["Linked List", "Two Pointers"],
+    "filename": "middle-of-the-linked-list"
   }
   
 ]
