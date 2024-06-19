@@ -1,0 +1,119 @@
+# Linked List Cycle II
+
+-----
+
+#### Description: 
+
+Given the ```head``` of a linked list, return the node where the cycle begins. _If there is no cycle, return ```null```_.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the ```next``` pointer. Internally, ```pos``` is used to denote the index of the node that tail's ```next``` pointer is connected to (0-indexed). It is ```-1``` if there is no cycle.** Note that ```pos``` is not passed as a parameter.**
+
+**Do not modify** the linked list.
+
+
+#### Examples:
+
+```txt
+Input: head = [3,2,0,-4], pos = 1
+Output: tail connects to node index 1
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
+```
+
+```txt
+Input: head = [1,2], pos = 0
+Output: tail connects to node index 0
+Explanation: There is a cycle in the linked list, where tail connects to the first node.
+```
+
+#### Constraints: 
+
+- The number of the nodes in the list is in the range $$[0, 10^4]$$.
+- $$-10^5 <= Node.val <= 10^5$$
+- ```pos``` is ```-1``` or a **valid index** in the linked-list.
+
+#### Code: 
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if (!head || !head->next) {
+            return nullptr;
+        }
+        ListNode *slow=head, *fast=head->next, *p1=head, *p2;
+        int count = 0;
+        while (slow && fast) {
+            if (slow == fast) {
+                p2 = slow;
+                break;
+            }
+            if (count%2 == 1) {
+                slow = slow->next;
+            }
+            fast = fast->next;
+            count++;
+        }
+        if (!slow || !fast) {
+            return nullptr;
+        }
+        p2 = p2->next;
+        count=0;
+        while (p1 != slow) {
+            p1 = p1->next;
+            count++;
+        } 
+        while (p2 != slow) {
+            p2 = p2->next;
+            count--;
+        }
+        p1 = head;
+        p2 = slow->next;
+        if (count > 0) {
+            while (count > 0) {
+                p1 = p1->next;
+                count--;
+            }
+        } else {
+            while (count < 0) {
+                p2 = p2->next;
+                count++;
+            }
+        }
+        if (p1 == p2) {
+            return p1;
+        }
+        while (p1 != slow) {
+            p1 = p1->next;
+            p2 = p2->next;
+            if (p1 == p2) {
+                return p1;
+            }
+        }
+        return nullptr;
+    }
+}; 
+```
+
+#### Explanation:
+
+- The problem is similar to the [Linked List Cycle](linked-list-cycle) problem with a slight modification.
+- We can use the same approach as in the previous problem to find the cycle in the linked list.
+- Once we find if there is a cycle in the linked list, we can solve this using the approach used to find the intersection point of two linked lists.
+- The head of the linkedlist to the intersection point is considered as the first linked list and the intersection point's next point to the intersection point is considered as the second linked list.
+- We can find the intersection point of the two linked lists using the approach mentioned in the [Intersection of Two Linked Lists](intersection-of-two-linked-lists) problem.
+- The intersection point of the two linked lists is the point where the cycle begins in the linked list.
+- We can return the intersection point as the answer.
+- If there is no cycle in the linked list, we can return ```nullptr```.
+
+#### Complexity Analysis:
+
+- The time complexity for this approach is $$O(N)$$ where $$N$$ is the number of nodes in the linked list.
+- The space complexity is $$O(1)$$.

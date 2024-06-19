@@ -250,6 +250,12 @@
     "problemType": "easy",
     "tags": ["Linked List", "Two Pointers", "Stack"],
     "filename": "palindrome-linked-list"
+  },
+  {
+    "title": "Linked List Cycle II",
+    "problemType": "medium",
+    "tags": ["Linked List", "Two Pointers", "Hash Table"],
+    "filename": "linked-list-cycle-2"
   }
   
 ]
