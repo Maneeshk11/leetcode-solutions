@@ -1,0 +1,87 @@
+# Palindrome Linked List
+
+-----
+
+#### Description: 
+
+Given the ```head``` of a singly linked list, return ```true``` _if it is a ```palindrome``` or ```false``` otherwise_.
+
+#### Examples:
+
+```txt
+Input: head = [1,2,2,1]
+Output: true
+```
+
+```txt
+Input: head = [1,2]
+Output: false
+```
+
+#### Constraints: 
+
+- The number of nodes in the list is in the range $$[1, 10^5]$$.
+- ```0 <= Node.val <= 9```
+
+#### Code: 
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode *p1 = head, *p2 = head;
+        int count = 0;
+        while (p2->next) {
+            if (count%2 == 1) {
+                p1 = p1->next;
+            }
+            p2 = p2->next;
+            count++;
+        }
+        if (p1 == p2) {
+            return true;
+        }
+        p1 = p1->next;
+        ListNode *curr=p1, *fut, *prev=nullptr;
+        while (curr) {
+            fut = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = fut;
+        }
+        p1 = prev;
+        while (head && p1) {
+            if (head->val != p1->val) {
+                return false;
+            }
+            head = head->next;
+            p1 = p1->next; 
+        }
+        return true;
+    }
+};
+```
+
+#### Explanation:
+
+- We can solve this problem by reversing the second half of the linked list and then comparing the first half with the reversed second half.
+- To find the middle of the linked list, we can use the two-pointer technique.
+- We can use the slow and fast pointers to find the middle of the linked list.
+- Once we find the middle of the linked list, we can reverse the second half of the linked list.
+- Finally, we can compare the first half with the reversed second half of the linked list.
+- If the first half is equal to the reversed second half, then the linked list is a palindrome.
+- Otherwise, it is not a palindrome.
+
+#### Complexity Analysis:
+
+- The time complexity for this approach is $$O(N)$$, where $$N$$ is the number of nodes in the linked list.

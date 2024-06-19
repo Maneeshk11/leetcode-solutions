@@ -244,6 +244,12 @@
     "problemType": "easy",
     "tags": ["Linked List", "Hash Table", "Two Pointers"],
     "filename": "intersection-of-two-linked-lists"
+  },
+  {
+    "title": "Palindrome Linked List",
+    "problemType": "easy",
+    "tags": ["Linked List", "Two Pointers", "Stack"],
+    "filename": "palindrome-linked-list"
   }
   
 ]
