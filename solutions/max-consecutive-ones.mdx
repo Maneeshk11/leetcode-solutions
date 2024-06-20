@@ -1,0 +1,58 @@
+# Max Consecutive Ones
+
+-----
+
+#### Description: 
+
+Given a binary array ```nums```, return _the maximum number of consecutive ```1```'s in the array._
+
+#### Examples:
+
+```txt
+Input: nums = [1,1,0,1,1,1]
+Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+```
+
+```txt
+Input: nums = [1,0,1,1,0,1]
+Output: 2
+```
+
+#### Constraints: 
+
+- $$1 <= nums.length <= 10^5$$
+- ```nums[i]``` is either ```0``` or ```1```.
+
+#### Code: 
+
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int maxi = 0;
+        int loc_max = 0;
+        for (auto x:nums) {
+            if (x == 1) {
+                loc_max++;
+            } else {
+                maxi = max(maxi, loc_max);
+                loc_max = 0;
+            }
+        }
+        maxi = max(maxi, loc_max);
+        return maxi;
+    }
+};
+```
+
+#### Explanation:
+
+- We can solve this problem by iterating over the array and keeping track of the maximum number of consecutive ones.
+- We will maintain two variables, ```maxi``` and ```loc_max```, where ```maxi``` will store the maximum number of consecutive ones found so far, and ```loc_max``` will store the number of consecutive ones found in the current sequence.
+- We will iterate over the array and increment ```loc_max``` whenever we encounter a ```1```. If we encounter a ```0```, we will update ```maxi``` with the maximum of ```maxi``` and ```loc_max```, and reset ```loc_max``` to ```0```.
+- Finally, we will update ```maxi``` with the maximum of ```maxi``` and ```loc_max``` and return ```maxi``` as the result.
+
+#### Complexity Analysis:
+
+- **Time Complexity:** $$O(N)$$ where $$N$$ is the length of the array.

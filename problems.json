@@ -270,10 +270,10 @@
     "filename": "remove-duplicates-from-sorted-array"
   },
   {
-    "title": "Copy List with Random Pointer",
-    "problemType": "medium",
-    "tags": ["Linked List", "Hash Table"],
-    "filename": "copy-list-with-random-pointer"
+    "title": "Max Consecutive Ones",
+    "problemType": "easy",
+    "tags": ["Array"],
+    "filename": "max-consecutive-ones"
   }
   
 ]
