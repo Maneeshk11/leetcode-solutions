@@ -256,6 +256,12 @@
     "problemType": "medium",
     "tags": ["Linked List", "Two Pointers", "Hash Table"],
     "filename": "linked-list-cycle-2"
+  },
+  {
+    "title": "Copy List with Random Pointer",
+    "problemType": "medium",
+    "tags": ["Linked List", "Hash Table"],
+    "filename": "copy-list-with-random-pointer"
   }
   
 ]
