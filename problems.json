@@ -262,6 +262,18 @@
     "problemType": "medium",
     "tags": ["Linked List", "Hash Table"],
     "filename": "copy-list-with-random-pointer"
+  },
+  {
+    "title": "Remove Duplicates from Sorted Array",
+    "problemType": "easy",
+    "tags": ["Array", "Two Pointers"],
+    "filename": "remove-duplicates-from-sorted-array"
+  },
+  {
+    "title": "Copy List with Random Pointer",
+    "problemType": "medium",
+    "tags": ["Linked List", "Hash Table"],
+    "filename": "copy-list-with-random-pointer"
   }
   
 ]
